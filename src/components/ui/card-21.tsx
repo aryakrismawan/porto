@@ -2,14 +2,14 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 
-// Define the props for the DestinationCard component
 export interface DestinationCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageUrl: string;
+  imageFit?: "cover" | "contain";
   location: string;
   flag?: string;
   stats?: string;
   href?: string;
-  themeColor: string; // e.g., "150 50% 25%" or "74 79% 50%"
+  themeColor: string;
   buttonText?: string;
   onCardClick?: () => void;
 }
@@ -19,6 +19,7 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
     {
       className,
       imageUrl,
+      imageFit = "cover",
       location,
       flag,
       stats,
@@ -42,7 +43,6 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         ref={ref}
         style={
           {
-            // CSS custom properties
             "--theme-color": themeColor,
           } as React.CSSProperties
         }
@@ -52,30 +52,32 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
         <a
           href={href}
           onClick={handleClick}
-          className="relative block w-full h-full rounded-3xl overflow-hidden shadow-lg 
-                     transition-all duration-500 ease-in-out cursor-pointer
-                     group-hover:scale-[1.02] group-hover:shadow-[0_0_60px_-15px_hsl(var(--theme-color)/0.6)]"
+          className="relative block w-full h-full rounded-3xl overflow-hidden border border-zinc-200/80 bg-zinc-100 shadow-xl shadow-zinc-200/70
+                     transition-all duration-500 ease-out cursor-pointer
+                     group-hover:-translate-y-1.5 group-hover:shadow-2xl group-hover:shadow-zinc-300"
           aria-label={`Explore details for ${location}`}
-          style={{
-            boxShadow: `0 0 40px -15px hsl(var(--theme-color) / 0.5)`,
-          }}
         >
-          {/* Background Image with Parallax Zoom */}
-          <div
-            className="absolute inset-0 bg-cover bg-center 
-                       transition-transform duration-700 ease-in-out group-hover:scale-110"
-            style={{ backgroundImage: `url(${imageUrl})` }}
+          {/* Image Layer — handles both full screenshots (cover) and transparent logos (contain) */}
+          <img
+            src={imageUrl}
+            alt={location}
+            className={cn(
+              "absolute inset-0 w-full h-full transition-transform duration-700 ease-out group-hover:scale-105",
+              imageFit === "contain"
+                ? "object-contain object-top pt-8 px-14 pb-40 bg-zinc-100"
+                : "object-cover object-top"
+            )}
           />
 
-          {/* Themed Gradient Overlay - Identical rich gradient across PC & Mobile */}
+          {/* Themed Gradient Overlay */}
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(to top, hsl(var(--theme-color) / 0.95), hsl(var(--theme-color) / 0.6) 40%, transparent 75%)`,
+              background: `linear-gradient(to top, hsl(var(--theme-color) / 0.96) 0%, hsl(var(--theme-color) / 0.72) 42%, transparent 78%)`,
             }}
           />
 
-          {/* Content: Structured consistently on Mobile & PC */}
+          {/* Content */}
           <div className="relative flex flex-col justify-end h-full p-6 sm:p-8 md:p-10 text-white min-h-full">
             <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight">
               {location} {flag && <span className="text-xl sm:text-2xl ml-1.5 align-middle">{flag}</span>}
@@ -88,10 +90,10 @@ const DestinationCard = React.forwardRef<HTMLDivElement, DestinationCardProps>(
 
             {/* Explore Button */}
             <div
-              className="mt-6 sm:mt-8 flex items-center justify-between bg-[hsl(var(--theme-color)/0.25)] backdrop-blur-md border border-[hsl(var(--theme-color)/0.35)] 
+              className="mt-6 sm:mt-8 flex items-center justify-between bg-white/15 backdrop-blur-md border border-white/25 
                          rounded-xl px-4 py-3 sm:px-5 sm:py-3.5 
                          transition-all duration-300 
-                         group-hover:bg-[hsl(var(--theme-color)/0.45)] group-hover:border-[hsl(var(--theme-color)/0.55)] group-hover:shadow-lg"
+                         group-hover:bg-white group-hover:text-zinc-900 group-hover:border-white group-hover:shadow-lg"
             >
               <span className="text-xs sm:text-sm font-semibold tracking-wider uppercase">
                 {buttonText}

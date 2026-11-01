@@ -1,3 +1,6 @@
+import rmbImage from "@/assets/rmb.png";
+import megsLogo from "@/assets/logo hitam.png";
+
 export interface ProjectItem {
   id: number;
   slug: string;
@@ -6,6 +9,7 @@ export interface ProjectItem {
   category: string;
   description: string;
   image: string;
+  imageFit?: "cover" | "contain";
   tech: string[];
   liveUrl: string;
   githubUrl?: string;
@@ -23,8 +27,8 @@ export const projectsData: ProjectItem[] = [
     category: "E-Commerce",
     description:
       "Platform toko online dan katalog produk Indonesia untuk komunitas di Korea Selatan dengan navigasi interaktif, katalog lengkap, dan alur pemesanan yang responsif.",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80",
+    image: rmbImage,
+    imageFit: "contain",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Cloudflare"],
     liveUrl: "https://ramahmurahberkah.com",
     githubUrl: "https://github.com",
@@ -49,8 +53,8 @@ export const projectsData: ProjectItem[] = [
     category: "Web Application",
     description:
       "Aplikasi web interaktif dengan performa optimal, antarmuka modern, dan pengalaman pengguna yang halus dihosting di jaringan global Cloudflare Pages.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    image: megsLogo,
+    imageFit: "contain",
     tech: ["React", "TypeScript", "Tailwind CSS", "Vite", "Cloudflare Pages"],
     liveUrl: "https://megs-web.pages.dev/",
     githubUrl: "https://github.com",
