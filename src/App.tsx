@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Component from "@/components/ui/portfolio-hero";
+import TeamMemberCard from "@/components/ui/team-member-card";
 import { ProfileSection } from "@/components/ProfileSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { ProjectDetail } from "@/components/ProjectDetail";
@@ -52,11 +52,14 @@ export default function App() {
   // Render Main Portfolio
   return (
     <div className="min-h-screen bg-black text-white selection:bg-[#C3E41D] selection:text-black">
-      {/* 1. Halaman Beranda */}
-      <Component
+      {/* 1. Halaman Beranda (Editorial Hero) */}
+      <TeamMemberCard
+        position="left"
         firstName="M. ARYA"
         lastName="KRISMAWAN"
-        avatarUrl={profileAvatar}
+        jobPosition="Frontend & Web Developer"
+        imageUrl={profileAvatar}
+        description="Lulusan Teknik Informatika yang berfokus pada pembuatan antarmuka web interaktif, berkinerja tinggi, dan responsif. Menggabungkan estetika visual modern dengan arsitektur kode yang bersih dan scalable."
       />
 
       {/* 2. Halaman Profil (Foto di kiri, Deskripsi di kanan) */}
