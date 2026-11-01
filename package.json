@@ -1,0 +1,15 @@
+{
+  "name": "arya-nature-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio bertema Nature & Biophilic Tech dengan arsitektur Cloudflare Edge (Pages & Functions)",
+  "author": "Arya Krismawan <aryakrismawan@ummi.ac.id>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler pages dev . --port 8788",
+    "deploy": "wrangler pages deploy . --project-name arya-nature-portfolio",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.98.0"
+  }
+}
