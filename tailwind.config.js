@@ -7,6 +7,13 @@ export default {
   ],
   theme: {
     extend: {
+      spacing: {
+        '90': '22.5rem',
+        '125': '31.25rem',
+      },
+      zIndex: {
+        '2': '2',
+      },
       colors: {
         border: "hsl(var(--border, 0 0% 20%))",
         input: "hsl(var(--input, 0 0% 20%))",
