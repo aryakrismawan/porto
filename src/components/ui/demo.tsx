@@ -1,16 +1,9 @@
-import React from "react";
-import Component from "@/components/ui/portfolio-hero";
+import TeamMemberCard from "./team-member-card";
 
 export default function Demo() {
   return (
-    <>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&family=Antic&display=swap"
-      />
-      <div className="w-full">
-        <Component />
-      </div>
-    </>
+    <div className="flex items-center justify-center min-h-screen bg-background p-8">
+      <TeamMemberCard />
+    </div>
   );
 }
