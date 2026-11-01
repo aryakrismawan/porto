@@ -1,15 +1,31 @@
 {
-  "name": "arya-nature-portfolio",
-  "version": "1.0.0",
-  "description": "Portfolio bertema Nature & Biophilic Tech dengan arsitektur Cloudflare Edge (Pages & Functions)",
-  "author": "Arya Krismawan <aryakrismawan@ummi.ac.id>",
-  "license": "MIT",
+  "name": "portoarya",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler pages dev . --port 8788",
-    "deploy": "wrangler pages deploy . --project-name arya-nature-portfolio",
-    "test": "echo \"No test specified\" && exit 0"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.63.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
-    "wrangler": "^4.98.0"
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "autoprefixer": "^10.6.2",
+    "oxlint": "^1.89.0",
+    "postcss": "^8.5.32",
+    "tailwindcss": "^3.4.19",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.5"
   }
 }

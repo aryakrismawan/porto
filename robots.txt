@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://arya-nature-portfolio.pages.dev/sitemap.xml
